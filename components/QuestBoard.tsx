@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Quest } from '../types';
 import { Button } from './Button';
-import { ClipboardList, CheckCircle, Coins } from 'lucide-react';
+import { RewardBadge } from './RewardBadge';
+import { ClipboardList, Coins } from 'lucide-react';
 
 interface QuestBoardProps {
   quests: Quest[];
@@ -70,8 +71,8 @@ export const QuestBoard: React.FC<QuestBoardProps> = ({ quests, onClaim }) => {
                 </div>
 
                 {quest.isClaimed ? (
-                   <div className="flex items-center gap-1 text-green-500 text-xs font-bold uppercase tracking-wide bg-green-900/20 px-2 py-1 rounded border border-green-500/20">
-                     <CheckCircle className="w-3 h-3" /> Done
+                   <div className="flex items-center gap-1 text-green-400 text-xs font-bold uppercase tracking-wide bg-green-950/40 px-3 py-1.5 rounded-full border border-green-500/30 shadow-[0_0_10px_rgba(34,197,94,0.1)]">
+                     <RewardBadge className="w-5 h-5" /> Done
                    </div>
                 ) : (
                     <Button 

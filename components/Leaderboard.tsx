@@ -6,6 +6,7 @@ interface LeaderboardProps {
   currentMoney: number;
   stats: PlayerStats;
   isVip: boolean;
+  playerName: string;
 }
 
 type LeaderboardType = 'wealth' | 'legends';
@@ -29,13 +30,13 @@ const MOCK_PLAYERS: MockPlayer[] = [
   { id: '7', name: 'ReelBigCatch', isVip: true, totalGold: 76000, legendaryCount: 18, avatarColor: 'bg-indigo-500' },
 ];
 
-export const Leaderboard: React.FC<LeaderboardProps> = ({ currentMoney, stats, isVip }) => {
+export const Leaderboard: React.FC<LeaderboardProps> = ({ currentMoney, stats, isVip, playerName }) => {
   const [activeTab, setActiveTab] = useState<LeaderboardType>('wealth');
 
   // Create current player object
   const currentPlayer: MockPlayer = {
     id: 'player',
-    name: 'You',
+    name: playerName || 'You',
     isVip: isVip,
     totalGold: stats.totalGoldEarned, // Use lifetime earnings for leaderboard
     legendaryCount: stats.legendaryFishCaught,
